@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>VelocityType | Modern Typing Speed Test & Practice</title>
+  <meta name="description" content="A modern, high-performance typing speed test and training platform with procedural mechanical switch sounds, analytics, and custom themes.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <a href="#" class="brand" id="brandLink">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4 7 4 4 20 4 20 7"></polyline>
+            <line x1="9" y1="20" x2="15" y2="20"></line>
+            <line x1="12" y1="4" x2="12" y2="20"></line>
+          </svg>
+        </div>
+        <div class="brand-name">VelocityType <span class="brand-tag">v2.0</span></div>
+      </a>
+
+      <div class="header-actions">
+        <!-- Sound Toggle -->
+        <button class="icon-btn" id="soundToggleBtn" title="Toggle Sound (Mute/Unmute)" aria-label="Toggle Sound">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+
+        <!-- Keyboard Visualizer Toggle -->
+        <button class="icon-btn" id="keyboardToggleBtn" title="Toggle On-Screen Keyboard" aria-label="Toggle Keyboard">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+            <line x1="6" y1="8" x2="6.01" y2="8"></line>
+            <line x1="10" y1="8" x2="10.01" y2="8"></line>
+            <line x1="14" y1="8" x2="14.01" y2="8"></line>
+            <line x1="18" y1="8" x2="18.01" y2="8"></line>
+            <line x1="6" y1="12" x2="6.01" y2="12"></line>
+            <line x1="18" y1="12" x2="18.01" y2="12"></line>
+            <line x1="7" y1="16" x2="17" y2="16"></line>
+          </svg>
+        </button>
+
+        <!-- History & Analytics -->
+        <button class="icon-btn" id="historyModalBtn" title="History & Stats" aria-label="View History">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3v5h5"></path>
+            <path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"></path>
+            <path d="M12 7v5l4 2"></path>
+          </svg>
+        </button>
+
+        <!-- Settings -->
+        <button class="icon-btn" id="settingsModalBtn" title="Settings" aria-label="Settings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Navigation & Mode Toolbar -->
+    <nav class="nav-toolbar">
+      <div class="mode-bar">
+        <!-- Modes -->
+        <button class="pill-btn active" data-mode="time" id="modeTime">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Time
+        </button>
+        <button class="pill-btn" data-mode="words" id="modeWords">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+          Words
+        </button>
+        <button class="pill-btn" data-mode="quote" id="modeQuote">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
+          Quote
+        </button>
+        <button class="pill-btn" data-mode="code" id="modeCode">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          Code
+        </button>
+        <button class="pill-btn" data-mode="custom" id="modeCustom">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+          Custom
+        </button>
+
+        <div class="toolbar-divider"></div>
+
+        <!-- Mode Sub-options Container -->
+        <div id="subOptionsContainer" style="display: flex; gap: 4px;">
+          <!-- Dynamically populated (e.g. 15, 30, 60, 120) -->
+        </div>
+
+        <div class="toolbar-divider"></div>
+
+        <!-- Modifiers -->
+        <button class="toggle-pill" id="punctuationToggle" title="Toggle Punctuation">@ punctuation</button>
+        <button class="toggle-pill" id="numbersToggle" title="Toggle Numbers"># numbers</button>
+      </div>
+    </nav>
+
+    <!-- Main View Area -->
+    <main class="main-view">
+      <!-- Live HUD -->
+      <div class="live-hud" id="liveHud">
+        <div class="hud-item" id="timerContainer">
+          <span class="hud-val" id="hudTimer">30</span>
+          <span class="hud-label" id="hudTimerLabel">sec</span>
+        </div>
+        <div class="hud-item" id="wpmContainer">
+          <span class="hud-val" id="hudWpm">0</span>
+          <span class="hud-label">wpm</span>
+        </div>
+        <div class="hud-item" id="accuracyContainer">
+          <span class="hud-val" id="hudAccuracy">100%</span>
+          <span class="hud-label">acc</span>
+        </div>
+      </div>
+
+      <!-- Typing Box -->
+      <div class="typing-box" id="typingBox" tabindex="0">
+        <!-- Hidden input for reliable typing & mobile support -->
+        <input type="text" class="hidden-input" id="hiddenInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="text" enterkeyhint="go">
+
+        <!-- Unfocused Blur Overlay -->
+        <div class="focus-overlay" id="focusOverlay">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6"></path><path d="M9 21H3v-6"></path><path d="M21 3l-7 7"></path><path d="M3 21l7-7"></path></svg>
+          Click or Tap to start typing
+        </div>
+
+        <!-- Dynamic 3-Line Words Container -->
+        <div class="words-viewport" id="wordsViewport">
+          <div class="caret style-smooth" id="caret"></div>
+          <div class="words-wrapper" id="wordsWrapper">
+            <!-- Words and characters will be dynamically rendered here -->
+          </div>
+        </div>
+
+        <!-- Quote Author Metadata (if in quote mode) -->
+        <div class="quote-credit" id="quoteCredit">— Author</div>
+      </div>
+
+      <!-- Quick Restart Bar -->
+      <div class="restart-bar">
+        <button class="restart-btn" id="restartBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+          Restart Test
+        </button>
+        <span class="restart-hint">Press <kbd class="kbd-badge">Tab</kbd> to quickly restart</span>
+      </div>
+
+      <!-- Results View -->
+      <section class="results-view" id="resultsView">
+        <div class="results-header">
+          <h2 class="results-title">Test Complete! 🎉</h2>
+          <div class="rank-badge" id="rankBadge">Master Typist</div>
+        </div>
+
+        <!-- Primary Key Metrics Grid -->
+        <div class="metrics-grid">
+          <div class="metric-card hero">
+            <span class="metric-val" id="resWpm">0</span>
+            <span class="metric-label">Net WPM</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val" id="resAccuracy">100%</span>
+            <span class="metric-label">Accuracy</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val" id="resCpm">0</span>
+            <span class="metric-label">Chars / Min</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val" id="resConsistency">100%</span>
+            <span class="metric-label">Consistency</span>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <span class="chart-card-title">Performance Timeline (WPM & Error Events)</span>
+          </div>
+          <canvas class="chart-canvas" id="perfChartCanvas"></canvas>
+        </div>
+
+        <!-- Details & Weak Keys Grid -->
+        <div class="details-grid">
+          <!-- Substats -->
+          <div class="substats-card">
+            <div class="substat-item">
+              <span class="substat-val" id="resRawWpm">0</span>
+              <span class="substat-label">Raw WPM</span>
+            </div>
+            <div class="substat-item">
+              <span class="substat-val" id="resChars">0/0/0/0</span>
+              <span class="substat-label">Correct / Error / Extra / Missed</span>
+            </div>
+            <div class="substat-item">
+              <span class="substat-val" id="resTime">0s</span>
+              <span class="substat-label">Time Elapsed</span>
+            </div>
+          </div>
+
+          <!-- Weak Keys Diagnostic -->
+          <div class="weak-keys-card">
+            <div class="weak-keys-header">Weakest Keys (Most Missed)</div>
+            <div class="weak-keys-list" id="weakKeysList">
+              <span style="font-size: 13px; color: var(--text-muted);">None! Flawless accuracy ✨</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Actions Toolbar -->
+        <div class="results-actions">
+          <button class="primary-btn" id="resNextBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            Next Test
+          </button>
+          <button class="secondary-btn" id="resRepeatBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+            Repeat Words
+          </button>
+          <button class="secondary-btn" id="resShareBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+            Copy Score Card
+          </button>
+        </div>
+      </section>
+
+      <!-- Virtual Keyboard -->
+      <section class="keyboard-section hidden" id="keyboardSection">
+        <div id="virtualKeyboardContainer"></div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-left">
+        <span>VelocityType &bull; Modern Typing Practice</span>
+      </div>
+      <div class="footer-links">
+        <button class="footer-link" id="shortcutsBtn">Shortcuts</button>
+        <button class="footer-link" id="themeModalBtn">Themes</button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal-backdrop" id="settingsModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Settings</h3>
+        <button class="icon-btn close-modal-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Theme Selection -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <div class="setting-title">Theme</div>
+            <div class="setting-desc">Choose your visual color palette</div>
+          </div>
+          <select class="custom-select" id="settingTheme">
+            <option value="midnight">Midnight Slate</option>
+            <option value="cyberpunk">Cyberpunk Neon</option>
+            <option value="nord">Nordic Frost</option>
+            <option value="dracula">Dracula</option>
+            <option value="sunset">Sunset Horizon</option>
+            <option value="matrix">Matrix Terminal</option>
+            <option value="paper">Minimal Paper (Light)</option>
+          </select>
+        </div>
+
+        <!-- Mechanical Key Sound -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <div class="setting-title">Mechanical Switch Sound</div>
+            <div class="setting-desc">Procedural zero-latency audio feedback</div>
+          </div>
+          <select class="custom-select" id="settingSound">
+            <option value="clicky">Clicky (Cherry MX Blue)</option>
+            <option value="thocky">Thocky (Lubed Linear)</option>
+            <option value="typewriter">Vintage Typewriter</option>
+            <option value="bubble">Bubble / Pop</option>
+            <option value="off">Off (Silent)</option>
+          </select>
+        </div>
+
+        <!-- Sound Volume -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <div class="setting-title">Sound Volume</div>
+            <div class="setting-desc">Adjust audio volume</div>
+          </div>
+          <input type="range" id="settingVolume" min="0" max="1" step="0.05" value="0.5" style="accent-color: var(--accent-primary); cursor: pointer;">
+        </div>
+
+        <!-- Caret Style -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <div class="setting-title">Caret Style</div>
+            <div class="setting-desc">Visual cursor appearance</div>
+          </div>
+          <select class="custom-select" id="settingCaret">
+            <option value="smooth">Smooth Sliding</option>
+            <option value="blink">Classic Blink</option>
+            <option value="block">Block Caret</option>
+            <option value="underline">Underline</option>
+            <option value="off">Hidden</option>
+          </select>
+        </div>
+
+        <!-- Font Family -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <div class="setting-title">Font Family</div>
+            <div class="setting-desc">Monospace font for typing text</div>
+          </div>
+          <select class="custom-select" id="settingFont">
+            <option value="'JetBrains Mono', monospace">JetBrains Mono</option>
+            <option value="'Fira Code', monospace">Fira Code</option>
+            <option value="monospace">System Monospace</option>
+          </select>
+        </div>
+
+        <!-- Strict Master Mode -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <div class="setting-title">Strict Master Mode</div>
+            <div class="setting-desc">Instantly fail test on any mistake</div>
+          </div>
+          <div class="custom-toggle" id="settingStrictToggle"></div>
+        </div>
+
+        <!-- Live WPM Gauge -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <div class="setting-title">Live Speed HUD</div>
+            <div class="setting-desc">Display real-time WPM & timer during test</div>
+          </div>
+          <div class="custom-toggle active" id="settingHudToggle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- History & Stats Modal -->
+  <div class="modal-backdrop" id="historyModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Your Statistics & History</h3>
+        <button class="icon-btn close-modal-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="substats-card" style="margin-bottom: 8px;">
+          <div class="substat-item">
+            <span class="substat-val" id="statBestWpm">0</span>
+            <span class="substat-label">Personal Best (WPM)</span>
+          </div>
+          <div class="substat-item">
+            <span class="substat-val" id="statAvgWpm">0</span>
+            <span class="substat-label">Average WPM</span>
+          </div>
+          <div class="substat-item">
+            <span class="substat-val" id="statTotalTests">0</span>
+            <span class="substat-label">Tests Completed</span>
+          </div>
+        </div>
+
+        <div class="history-table-wrapper">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>WPM</th>
+                <th>Acc</th>
+                <th>Mode</th>
+                <th>Time</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
+          <button class="secondary-btn" id="clearHistoryBtn" style="color: var(--char-incorrect);">
+            Clear All History
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Time Modal -->
+  <div class="modal-backdrop" id="customTimeModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Set Custom Time</h3>
+        <button class="icon-btn close-modal-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 13px; color: var(--text-secondary);">
+          Choose a preset or enter your custom test duration (in seconds):
+        </p>
+
+        <!-- Presets Grid -->
+        <div class="preset-chips-grid">
+          <button type="button" class="preset-chip" data-time="10">10s</button>
+          <button type="button" class="preset-chip" data-time="45">45s</button>
+          <button type="button" class="preset-chip" data-time="90">90s (1.5m)</button>
+          <button type="button" class="preset-chip" data-time="180">180s (3m)</button>
+          <button type="button" class="preset-chip" data-time="300">300s (5m)</button>
+          <button type="button" class="preset-chip" data-time="600">600s (10m)</button>
+        </div>
+
+        <!-- Custom Input -->
+        <div class="custom-input-group">
+          <label for="customTimeInput" style="font-size: 13px; font-weight: 600; color: var(--text-primary);">
+            Custom Duration (seconds):
+          </label>
+          <div class="custom-input-wrapper">
+            <input type="number" class="custom-number-input" id="customTimeInput" min="5" max="3600" step="1" value="45" placeholder="e.g. 45">
+            <span class="custom-input-unit">seconds</span>
+          </div>
+          <span style="font-size: 11px; color: var(--text-muted);">Range: 5 to 3600 seconds (up to 1 hour)</span>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px;">
+          <button type="button" class="secondary-btn close-modal-btn">Cancel</button>
+          <button type="button" class="primary-btn" id="applyCustomTimeBtn">Set & Start Test</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Text Modal -->
+  <div class="modal-backdrop" id="customTextModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Custom Practice Text</h3>
+        <button class="icon-btn close-modal-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 13px; color: var(--text-secondary);">
+          Paste any text, article, speech, or practice sentences below:
+        </p>
+        <textarea class="custom-textarea" id="customTextInput" placeholder="Paste your text here..."></textarea>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: var(--text-muted);" id="customWordCount">0 words</span>
+          <button class="primary-btn" id="applyCustomTextBtn">Start Test</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Keyboard Shortcuts Modal -->
+  <div class="modal-backdrop" id="shortcutsModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Keyboard Shortcuts</h3>
+        <button class="icon-btn close-modal-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-row">
+          <span class="setting-title">Quick Restart</span>
+          <kbd class="kbd-badge">Tab</kbd>
+        </div>
+        <div class="setting-row">
+          <span class="setting-title">Restart on Result Screen</span>
+          <kbd class="kbd-badge">Tab + Enter</kbd>
+        </div>
+        <div class="setting-row">
+          <span class="setting-title">Delete Whole Word</span>
+          <kbd class="kbd-badge">Ctrl + Backspace</kbd>
+        </div>
+        <div class="setting-row">
+          <span class="setting-title">Close Modals</span>
+          <kbd class="kbd-badge">Esc</kbd>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
